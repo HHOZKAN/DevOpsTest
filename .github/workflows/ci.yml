@@ -16,6 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Vérification des fichiers
+        run: ls -R
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -23,6 +26,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./  # Ajoute cette ligne si ton projet est à la racine
 
       - name: Run tests
         run: npm test
